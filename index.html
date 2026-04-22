@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encuentros Cerca de Ti</title>
+    <style>
+        :root {
+            --primary: #ff4b2b;
+            --secondary: #ff416c;
+            --dark: #1a1a1a;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1516589174184-c685266d434c?auto=format&fit=crop&q=80') no-index center/cover;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        h1 { font-size: 1.8rem; margin-bottom: 10px; }
+        p { font-size: 1rem; opacity: 0.9; }
+        .step { display: none; }
+        .step.active { display: block; }
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: transform 0.2s;
+            text-decoration: none;
+        }
+        .btn-primary {
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            color: white;
+        }
+        .btn:active { transform: scale(0.98); }
+        .footer-note { font-size: 0.7rem; margin-top: 20px; color: #ccc; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div id="step1" class="step active">
+        <h1>¿Estás listo?</h1>
+        <p>Hay personas cerca de tu ubicación buscando conocer a alguien hoy mismo.</p>
+        <button class="btn btn-primary" onclick="nextStep(2)">BUSCO MUJERES</button>
+        <button class="btn btn-primary" onclick="nextStep(2)">BUSCO HOMBRES</button>
+    </div>
+
+    <div id="step2" class="step">
+        <h1>IMPORTANTE</h1>
+        <p>¿Tienes más de 18 años y prometes respetar la privacidad de los demás miembros?</p>
+        <button class="btn btn-primary" onclick="nextStep(3)">SÍ, TENGO +18</button>
+    </div>
+
+    <div id="step3" class="step">
+        <h1>¡PERFECTO!</h1>
+        <p>Hemos encontrado 12 perfiles disponibles según tus respuestas.</p>
+        <a href="TU_ENLACE_DE_AFILIADO_AQUI" class="btn btn-primary">VER PERFILES AHORA</a>
+    </div>
+
+    <div class="footer-note">
+        * Al continuar, aceptas nuestros términos y condiciones.
+    </div>
+</div>
+
+<script>
+    function nextStep(step) {
+        document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+        document.getElementById('step' + step).classList.add('active');
+    }
+</script>
+
+</body>
+</html>
